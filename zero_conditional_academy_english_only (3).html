@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero Conditional Academy | Play &amp; Practice</title>
+<style>
+:root{--ink:#24264b;--purple:#7357e8;--pink:#ff6eaa;--blue:#5fc9f5;--yellow:#ffdc70;--mint:#8ce6c2;--paper:#fffdf8;--soft:#f0edff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:linear-gradient(135deg,#e6f8ff,#f8eaff 55%,#fff3d4);line-height:1.55}
+header{padding:30px 18px 26px;text-align:center;background:linear-gradient(120deg,#7357e8,#b45de8);color:white;border-bottom:6px solid var(--yellow)}
+header .eyebrow{font-weight:bold;letter-spacing:2px;text-transform:uppercase;font-size:.8rem}h1{font-size:clamp(1.8rem,5vw,3rem);margin:8px 0}header p{max-width:700px;margin:0 auto}
+.wrap{max-width:1000px;margin:22px auto;padding:0 15px 40px}.status{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+.pill{background:white;border:2px solid #ded7ff;border-radius:999px;padding:8px 16px;font-weight:bold;box-shadow:0 3px 0 #d6cef8}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:18px 0}
+.tabs button,.action{border:0;border-radius:12px;padding:11px 16px;background:var(--purple);color:white;font-weight:bold;cursor:pointer;box-shadow:0 4px 0 #4f3bb1;transition:transform .15s}
+.tabs button{background:white;color:var(--ink);box-shadow:0 3px 0 #d6cef8;border:2px solid #ded7ff}.tabs button.active{background:var(--yellow);border-color:#f4c744}
+button:hover{transform:translateY(-2px)}button:focus,input:focus,select:focus{outline:3px solid var(--blue);outline-offset:2px}
+.panel{background:var(--paper);border:2px solid #e4ddff;border-radius:22px;padding:clamp(18px,4vw,30px);box-shadow:0 9px 0 rgba(91,68,168,.12);margin-bottom:18px}
+h2{margin-top:0;color:#5c46c4}h3{color:#5c46c4;margin-bottom:5px}.hero-row{display:flex;gap:18px;align-items:center}.anime{font-size:4rem;min-width:90px;text-align:center;background:#fff0f7;border-radius:22px;padding:8px}
+.rule{background:var(--soft);padding:14px 17px;border-left:5px solid var(--purple);border-radius:10px;margin:14px 0}
+.formula{font-size:clamp(1rem,3vw,1.35rem);font-weight:bold;text-align:center;background:#fff4d0;border-radius:12px;padding:15px}
+.examples{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.example{border:2px dashed #d8cffb;padding:13px;border-radius:14px;background:white}
+.instructions li{margin:7px 0}.quest-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.progress{height:12px;background:#e8e3ff;border-radius:99px;overflow:hidden;margin:12px 0 20px}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--purple));transition:width .3s}
+.question{font-size:1.15rem;font-weight:bold;margin:12px 0}.answer-row{display:flex;gap:8px;flex-wrap:wrap}.answer-row input{flex:1;min-width:180px;padding:12px;border:2px solid #d8cffb;border-radius:10px;font-size:1rem}.feedback{min-height:30px;font-weight:bold;margin:12px 0}.good{color:#147b53}.bad{color:#b33660}.muted{color:#666887}.action.secondary{background:#4b9cc5;box-shadow:0 4px 0 #28749a}.action.gold{background:#e9a900;box-shadow:0 4px 0 #b47f00;color:#24264b}
+.hidden{display:none!important}.answer-key details{background:white;border:1px solid #e1dafb;border-radius:10px;padding:10px 13px;margin:8px 0}.answer-key summary{cursor:pointer;font-weight:bold}.answer-key ol li{margin:8px 0}
+.badge{display:inline-block;padding:4px 9px;background:#fff0f7;border-radius:99px;font-size:.85rem;font-weight:bold}.visual-banner{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.visual{border-radius:18px;padding:16px;text-align:center;background:#fff0f7;border:2px solid #ffd1e6}.visual:nth-child(2){background:#e9f8ff;border-color:#c8edff}.visual:nth-child(3){background:#fff6d9;border-color:#ffe9a0}.visual .art{font-size:3rem;display:block;line-height:1.3}.visual strong{display:block;margin-top:7px}.options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}.option{background:white;border:2px solid #d8cffb;border-radius:14px;padding:14px;text-align:left;color:var(--ink);font-size:1rem;cursor:pointer;box-shadow:0 3px 0 #e6e0ff}.option .letter{display:inline-flex;align-items:center;justify-content:center;width:29px;height:29px;border-radius:50%;background:#f0edff;color:#5c46c4;font-weight:bold;margin-right:8px}.option.selected{border-color:var(--purple);background:#f1edff}.option.correct{border-color:#2caa78;background:#e7fff4}.option.incorrect{border-color:#e45c8e;background:#fff0f6}.option:disabled{cursor:default}.action:disabled{opacity:.55;cursor:not-allowed;transform:none}.footer{text-align:center;color:#666887;font-size:.9rem;margin-top:18px}
+@media(max-width:620px){.visual-banner{grid-template-columns:1fr}.visual{display:flex;align-items:center;gap:14px;text-align:left}.visual .art{font-size:2.5rem}.options{grid-template-columns:1fr}}
+@media(max-width:560px){.hero-row{align-items:flex-start}.anime{font-size:3rem;min-width:65px}.panel{padding:17px}.tabs button{flex:1}}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">English Quest • A2 Level</div>
+  <h1>🌸 Zero Conditional Academy</h1>
+  <p><strong>Play & Practice:</strong> Train to become a confident future teacher by mastering classroom advice and the Zero Conditional!</p>
+</header>
+<main class="wrap">
+  <div class="status" aria-live="polite">
+    <div class="pill">⭐ Score: <span id="score">0</span></div>
+    <div class="pill">🔥 Streak: <span id="streak">0</span></div>
+    <div class="pill">🏅 Rank: <span id="rank">Rookie Teacher</span></div>
+  </div>
+  <nav class="tabs" aria-label="Lesson sections">
+    <button class="active" data-tab="learn">1. Learn</button>
+    <button data-tab="examples">2. Examples</button>
+    <button data-tab="play">3. Play &amp; Practice</button>
+    <button data-tab="key">4. Answer Key</button>
+  </nav>
+
+  <section id="learn" class="panel tab-panel">
+    <div class="hero-row"><div class="anime" aria-hidden="true">👩🏻‍🏫✨</div><div><h2>Welcome, Future Teacher!</h2><p>Your mission is to give useful advice about teaching. Learn the pattern, study the examples, and earn points by answering 15 multiple-choice questions.</p></div></div>
+    <div class="visual-banner"><div class="visual"><span class="art">📚</span><div><strong>Plan Your Lessons</strong><span>Be ready to teach.</span></div></div><div class="visual"><span class="art">🙋🏽‍♀️</span><div><strong>Support Your Students</strong><span>Listen and encourage.</span></div></div><div class="visual"><span class="art">🌈</span><div><strong>Include Everyone</strong><span>Respect different needs.</span></div></div></div>
+    <h3>What is the Zero Conditional?</h3>
+    <p>We use the <strong>Zero Conditional</strong> for facts, rules, routines, and results that are generally true. In a teaching context, it can explain what usually happens when teachers or students do something.</p>
+    <div class="formula">IF + present simple, present simple</div>
+    <div class="rule"><strong>Remember:</strong> Use the present simple in both parts of the sentence. You can put the <em>if-clause</em> first or second. When the sentence starts with <em>if</em>, use a comma.</div>
+    <div class="examples">
+      <div class="example"><span style="font-size:2.2rem">📝</span><br><span class="badge">Classroom routine</span><p><strong>If teachers give clear instructions, students understand the task.</strong></p></div>
+      <div class="example"><span style="font-size:2.2rem">🗣️</span><br><span class="badge">Learning advice</span><p><strong>If students practise every day, they improve their English.</strong></p></div>
+      <div class="example"><span style="font-size:2.2rem">💛</span><br><span class="badge">Positive classroom</span><p><strong>If a teacher listens carefully, students feel respected.</strong></p></div>
+    </div>
+    <h3>How to play</h3>
+    <ol class="instructions">
+      <li>Open <strong>Play &amp; Practice</strong> and read the question.</li>
+      <li>Type the missing verb or choose the correct option.</li>
+      <li>Select <strong>Check Answer</strong> to get instant feedback.</li>
+      <li>A correct answer earns <strong>10 points</strong>. Build a streak by answering correctly in a row.</li>
+      <li>If your answer is incorrect, read the feedback and click <strong>Next Question</strong> to continue. You can move on even when your answer is wrong.</li>
+      <li>Complete all 15 questions, then check the answer key to review.</li>
+    </ol>
+    <button class="action" onclick="showTab('play')">Start Playing ➜</button>
+  </section>
+
+  <section id="examples" class="panel tab-panel hidden">
+    <h2>Examples in a Teaching Context</h2>
+    <p>Read these examples aloud. Notice that both verbs use the present simple.</p>
+    <div class="examples">
+      <div class="example"><span class="art">🗓️</span><strong>Advice</strong><p>If you plan your lesson, you use class time well.</p></div>
+      <div class="example"><span class="art">🛡️</span><strong>Classroom management</strong><p>If students know the rules, they work more safely.</p></div>
+      <div class="example"><span class="art">💬</span><strong>Feedback</strong><p>If teachers give helpful feedback, learners understand their mistakes.</p></div>
+      <div class="example"><span class="art">🙋</span><strong>Participation</strong><p>If teachers ask open questions, students share more ideas.</p></div>
+      <div class="example"><span class="art">🎧</span><strong>English practice</strong><p>If learners speak English regularly, they build confidence.</p></div>
+      <div class="example"><span class="art">🤝</span><strong>Inclusion</strong><p>If teachers respect different needs, more students feel included.</p></div>
+    </div>
+    <div class="rule"><strong>Quick tip:</strong> With <em>he, she, it</em>, add <em>-s</em> or <em>-es</em> to most present simple verbs: <em>the student learns</em>, <em>the teacher watches</em>.</div>
+    <button class="action" onclick="showTab('play')">Try the Questions ➜</button>
+  </section>
+
+  <section id="play" class="panel tab-panel hidden">
+    <div class="quest-top"><div><span class="badge">MULTIPLE-CHOICE GAME</span><h2 style="margin:7px 0">Play &amp; Practice</h2></div><div class="anime" aria-hidden="true">🧑🏽‍🎓⚡</div></div>
+    <p class="muted">Choose the correct present simple form to complete each sentence about teaching. Select one of the four options. You can move to the next question even if your answer is incorrect.</p><div class="visual-banner"><div class="visual"><span class="art">🧑‍🏫</span><div><strong>Think</strong><span>Read the sentence.</span></div></div><div class="visual"><span class="art">☝️</span><div><strong>Choose</strong><span>Select one option.</span></div></div><div class="visual"><span class="art">🏆</span><div><strong>Earn Points</strong><span>Learn from feedback.</span></div></div></div>
+    <div class="progress" aria-label="Quest progress"><div class="bar" id="progressBar"></div></div>
+    <div class="quest-top"><strong>Question <span id="currentNum">1</span> of 15</strong><span class="muted" id="answeredCount">0 answered</span></div>
+    <div class="question" id="questionText"></div>
+    <div class="options" id="optionsArea"></div>
+    <div class="feedback" id="feedback" aria-live="polite"></div>
+    <div class="answer-row">
+      <button class="action" id="checkBtn" onclick="checkAnswer()">Check Answer</button>
+      <button class="action gold" id="nextBtn" onclick="nextQuestion()" disabled>Next Question ➜</button>
+    </div>
+    <div id="finishBox" class="rule hidden"></div>
+    <button class="action secondary" onclick="restartGame()">Restart Game ↻</button>
+  </section>
+
+  <section id="key" class="panel tab-panel hidden answer-key">
+    <h2>Answer Key 📘</h2>
+    <p>Use this key after attempting the challenges. Read each complete sentence and notice the present simple verbs.</p>
+    <details><summary>Show all 15 answers</summary><ol id="keyList"></ol></details>
+    <button class="action" onclick="showTab('play')">Return to Play &amp; Practice ➜</button>
+  </section>
+  <p class="footer">🌟 Keep practising: great teachers learn, reflect, and try again!</p>
+</main>
+<script>
+const questions = [
+ {sentence:"If a teacher ______ clear instructions, students understand the task.",options:["give","gives","giving","gave"],answer:1,why:"A teacher is singular, so use gives."},
+ {sentence:"If students ______ every day, they improve their English.",options:["practises","practise","practising","practised"],answer:1,why:"Students is plural, so use the base form practise."},
+ {sentence:"If a learner feels nervous, a kind teacher ______ them feel safe.",options:["help","helps","helping","helped"],answer:1,why:"A kind teacher is singular, so use helps."},
+ {sentence:"If teachers ______ their lessons, they use class time well.",options:["plans","planning","plan","planned"],answer:2,why:"Teachers is plural, so use plan."},
+ {sentence:"If a student ______ a question, the teacher explains the answer.",options:["ask","asks","asking","asked"],answer:1,why:"A student is singular, so add -s: asks."},
+ {sentence:"If teachers listen carefully, students ______ respected.",options:["feels","feeling","feel","felt"],answer:2,why:"Students is plural, so use feel."},
+ {sentence:"If a class ______ clear rules, students work more safely.",options:["have","having","has","had"],answer:2,why:"Class is singular. The present simple form of have is has."},
+ {sentence:"If learners ______ new words, they remember them better.",options:["reviews","review","reviewing","reviewed"],answer:1,why:"Learners is plural, so use review."},
+ {sentence:"If a teacher gives helpful feedback, students ______ their mistakes.",options:["understands","understanding","understand","understood"],answer:2,why:"Students is plural, so use understand."},
+ {sentence:"If teachers ______ different needs, more students feel included.",options:["respects","respect","respecting","respected"],answer:1,why:"Teachers is plural, so use respect."},
+ {sentence:"If a student ______ in class, they learn from others.",options:["participate","participates","participating","participated"],answer:1,why:"A student is singular, so use participates."},
+ {sentence:"If teachers use pictures, they ______ new ideas easier to understand.",options:["makes","making","make","made"],answer:2,why:"They is plural, so use make."},
+ {sentence:"If a learner ______ English aloud, their confidence grows.",options:["read","reads","reading","have read"],answer:1,why:"A learner is singular, so use reads."},
+ {sentence:"If students work in pairs, they ______ speaking together.",options:["practises","practise","practising","practised"],answer:1,why:"They is plural, so use practise."},
+ {sentence:"If a teacher ______ calm, students often feel calm too.",options:["stay","staying","stays","stayed"],answer:2,why:"A teacher is singular, so use stays."}
+];
+let index=0, score=0, streak=0, answered=new Set(), selected=null, checked=false;
+const $=id=>document.getElementById(id);
+function showTab(id){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.add('hidden'));$(id).classList.remove('hidden');document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));if(id==='play')renderQuestion();window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+function updateStatus(){$('score').textContent=score;$('streak').textContent=streak;$('rank').textContent=score>=130?'Teaching Legend':score>=90?'Classroom Hero':score>=50?'Rising Educator':'Rookie Teacher';$('answeredCount').textContent=answered.size+' answered';$('progressBar').style.width=(answered.size/15*100)+'%';}
+function renderQuestion(){
+ if(index>=questions.length){finishGame();return}
+ selected=null;checked=false;const q=questions[index];$('currentNum').textContent=index+1;$('questionText').textContent=q.sentence;
+ const area=$('optionsArea');area.innerHTML='';q.options.forEach((opt,i)=>{const b=document.createElement('button');b.className='option';b.type='button';b.innerHTML='<span class="letter">'+String.fromCharCode(65+i)+'</span>'+opt;b.onclick=()=>selectOption(i);b.setAttribute('aria-pressed','false');area.appendChild(b)});
+ $('feedback').textContent='';$('feedback').className='feedback';$('checkBtn').disabled=false;$('nextBtn').disabled=true;$('nextBtn').textContent=index===questions.length-1?'See Results ➜':'Next Question ➜';$('finishBox').classList.add('hidden');updateStatus();
+}
+function selectOption(i){if(checked)return;selected=i;[...$('optionsArea').children].forEach((b,j)=>{b.classList.toggle('selected',j===i);b.setAttribute('aria-pressed',j===i?'true':'false')});$('feedback').textContent='Answer selected. Click “Check Answer” to see your feedback.';$('feedback').className='feedback muted';}
+function checkAnswer(){
+ if(checked)return;if(selected===null){$('feedback').textContent='Please select an answer first.';$('feedback').className='feedback bad';return}
+ checked=true;const q=questions[index];const buttons=[...$('optionsArea').children];buttons.forEach((b,i)=>{b.disabled=true;if(i===q.answer)b.classList.add('correct');if(i===selected&&i!==q.answer)b.classList.add('incorrect')});
+ if(selected===q.answer){score+=10;streak++;$('feedback').textContent='✨ Correct! '+q.why+' +10 points!';$('feedback').className='feedback good'}else{streak=0;$('feedback').textContent='Not quite. '+q.why+' The correct answer is “'+q.options[q.answer]+'”. You can still continue!';$('feedback').className='feedback bad'}
+ answered.add(index);$('checkBtn').disabled=true;$('nextBtn').disabled=false;$('nextBtn').textContent=index===questions.length-1?'See Results ➜':'Next Question ➜';updateStatus();
+}
+function nextQuestion(){if(!checked){$('feedback').textContent='Please select an answer and click “Check Answer” first. You can continue even if it is incorrect.';$('feedback').className='feedback bad';return}index++;if(index>=questions.length)finishGame();else renderQuestion()}
+function finishGame(){$('currentNum').textContent='15';$('questionText').textContent='Game complete!';$('optionsArea').innerHTML='';$('feedback').textContent='You finished all 15 questions. Well done!';$('feedback').className='feedback good';$('checkBtn').disabled=true;$('nextBtn').disabled=true;$('progressBar').style.width='100%';$('finishBox').classList.remove('hidden');let msg=score>=130?'Teaching Legend! Your grammar skills are shining.':score>=90?'Classroom Hero! You are making great progress.':score>=50?'Rising Educator! Keep practising to level up.':'Good effort! Review the lesson and try again.';$('finishBox').innerHTML='<strong>🏆 Final Score: '+score+' / 150</strong><br>'+msg+'<br><strong>Questions answered:</strong> '+answered.size+' of 15.';updateStatus()}
+function restartGame(){index=0;score=0;streak=0;answered=new Set();selected=null;checked=false;renderQuestion()}
+function buildKey(){const list=$('keyList');questions.forEach(q=>{const li=document.createElement('li');li.textContent=q.sentence.replace('______',q.options[q.answer])+' — '+q.why;list.appendChild(li)})}
+buildKey();renderQuestion();
+</script>
+</body>
+</html>
